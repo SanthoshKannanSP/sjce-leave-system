@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='dashboard.css')}}">
+</head>
+<body>
+    <section class="side">
+        <img src="{{ url_for('static',filename='logo2.png') }}" alt="">
+    </section>
+    <nav>
+        <ul>
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('leave_form') }}">Leave Form</a></li>
+          <li><a href="#">History</a></li>
+          <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </nav>
+      
+    <div class="card-container">
+    <div class="card">
+        <div class="card-info">
+            <h2>{{ data.name }}</h2>
+            <div class="text-info">
+            <div class="column">
+            <p>Course </p>
+            <p>Department </p>
+            <p>Batch </p>
+            <p>Roll No </p>
+            <p>Register No </p>
+            <p>Leave Taken so far </p>
+            <p>Leave with Leave letter </p>
+            <p>Medical Leave </p>
+            <p>Privilege Leave </p>
+            <p>Absent </p>
+            </div>
+            <div class="column">
+                <p>{{ data.course }}</p>
+                <p>{{ data.branch }}</p>
+                <p>{{ data.batch }}</p>
+                <p>{{ data.roll_no }}</p>
+                <p>{{ data.register_no }}</p>
+                <p>{{ leave_data.leave_taken }}</p>
+                <p>{{ leave_data.ll }}</p>
+                <p>{{ leave_data.ml }}</p>
+                <p>{{ leave_data.pl }}</p>
+                <p>{{ leave_data.ab }}</p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    
+</body>
+</html>

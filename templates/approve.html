@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approve</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='admin.css')}}">
+</head>
+<body>
+    <section class="side">
+        <img src="{{ url_for('static',filename='logo2.png') }}" alt="">
+    </section>
+    <nav>
+        <ul>
+          <li><a href="{{ url_for('admin') }}">Home</a></li>
+          <li><a href="{{ url_for('approve') }}">Approve</a></li>
+          <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </nav>
+    
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Section</th>
+            <th>Year</th>
+            <th>Number of days</th>
+            <th>Reason</th>
+            <th>Type</th>
+            <th>Start Date</th>
+            <th>Approve</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in data %}
+          <tr>
+            <td>{{ i.name }}</td>
+            <td>{{ i.branch }}</td>
+            <td>{{ i.section }}</td>
+            <td>{{ i.year }}</td>
+            <td>{{ i.number_of_days }}</td>
+            <td>{{ i.reason }}</td>
+            <td>{{ i.type }}</td>
+            <td>{{ i.start_date }}</td>
+            <td>
+                <form action="/admin/approve" method="POST">
+                    <button type="submit" name="button-name" value="{{ loop.index0 }}">Approve</button>
+                </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+    
+</body>
+</html>
